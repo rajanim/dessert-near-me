@@ -114,16 +114,18 @@ export default function Home() {
         </main>
 
         {/* Footer section */}
-        <footer className="bg-white border-t border-gray-100 py-8 mt-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-2">
-            <h3 className="text-lg font-bold text-gray-900">About Me</h3>
-            <p className="text-gray-600 font-medium">Rajani Maski</p>
-            <p className="text-gray-500 text-sm">Passionate AI engineer</p>
+        <footer className="bg-white border-t border-gray-100 py-6 mt-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
+              <span className="font-medium text-gray-900">Rajani Maski</span>
+              <span className="hidden sm:inline">&bull;</span>
+              <span>Passionate AI engineer</span>
+            </div>
             <a 
               href="https://www.linkedin.com/in/rajanimaski" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-pink-600 hover:text-pink-700 font-medium mt-2 transition-colors"
+              className="text-pink-600 hover:text-pink-700 font-medium transition-colors"
             >
               Connect on LinkedIn
             </a>
