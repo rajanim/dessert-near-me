@@ -14,8 +14,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dessert-near-me.vercel.app"),
   title: "Dessert Near Me - Find Sweet Treats",
   description: "Type a dessert and find nearby places that likely have it.",
+  openGraph: {
+    title: "Dessert Near Me - Find Sweet Treats",
+    description: "Type a dessert and find nearby places that likely have it.",
+    url: "https://dessert-near-me.vercel.app",
+    siteName: "Dessert Near Me",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dessert Near Me - Find Sweet Treats",
+    description: "Type a dessert and find nearby places that likely have it.",
+  },
 };
 
 export default function RootLayout({
