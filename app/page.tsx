@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { APIProvider } from "@vis.gl/react-google-maps";
 import { IceCream } from "lucide-react";
 import SearchForm from "../components/SearchForm";
@@ -65,17 +66,42 @@ export default function Home() {
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
           
           {/* Hero / Search Section */}
-          <section className="text-center space-y-6 pt-4 pb-2">
-            <div className="space-y-2">
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-                Craving something sweet?
-              </h2>
-              <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-                Type a dessert and find nearby places that likely have it. We search local bakeries, cafes, and shops.
-              </p>
-            </div>
+          <section className="text-center space-y-8 pt-4 pb-6">
+            {!hasSearched && (
+              <div className="relative w-full max-w-5xl mx-auto h-64 sm:h-80 md:h-96 rounded-[2rem] overflow-hidden shadow-2xl mb-8 group animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <Image 
+                  src="/hero-dessert.jpg"
+                  alt="Delicious dessert spread"
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 text-white flex flex-col items-center justify-end">
+                  <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight drop-shadow-md">
+                    Craving something sweet?
+                  </h2>
+                  <p className="text-lg md:text-xl mt-3 text-gray-200 max-w-2xl mx-auto drop-shadow-sm">
+                    Type a dessert and find nearby places that likely have it. We search local bakeries, cafes, and shops.
+                  </p>
+                </div>
+              </div>
+            )}
             
-            <SearchForm onSearch={handleSearch} isSearching={isSearching} />
+            {hasSearched && (
+              <div className="space-y-2 animate-in fade-in duration-500">
+                <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+                  Craving something sweet?
+                </h2>
+                <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+                  Type a dessert and find nearby places that likely have it. We search local bakeries, cafes, and shops.
+                </p>
+              </div>
+            )}
+            
+            <div className="max-w-3xl mx-auto">
+              <SearchForm onSearch={handleSearch} isSearching={isSearching} />
+            </div>
           </section>
 
           {/* Results Section */}
